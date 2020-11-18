@@ -12,6 +12,7 @@
       crossorigin
       src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-draggable@4.2.0/web/react-draggable.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
       body {
@@ -92,11 +93,11 @@
           );
         };
         render() {
-          if (this.state.editing) {
-            return this.renderForm();
-          } else {
-            return this.renderDisplay();
-          }
+          return (
+            <ReactDraggable>
+              {this.state.editing ? this.renderForm() : this.renderDisplay()}
+            </ReactDraggable>
+          );
         }
       }
 
